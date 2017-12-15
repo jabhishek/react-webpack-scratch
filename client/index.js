@@ -1,2 +1,1 @@
-// @flow
-import React from 'react';
+const a = x => x * x;
