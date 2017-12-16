@@ -1,5 +1,19 @@
-const square = x => x * x;
+import {AppContainer} from 'react-hot-loader';
+import React from 'react';
+import {render} from 'react-dom';
+import {App} from './app.js';
 
-const value = square(10);
+const renderApp = () => {
+  render(<AppContainer>
+      <App/>
+    </AppContainer>,
+    document.getElementById('root'));
+};
 
-document.write(`${value} is the square of 10`);
+renderApp();
+
+if (module.hot) {
+  module.hot.accept('./app.js', () => {
+    renderApp();
+  })
+}
