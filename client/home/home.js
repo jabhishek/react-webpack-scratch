@@ -1,6 +1,4 @@
-/**
- * Created by Abhi on 17/12/2017.
- */
+// @flow
 import React from 'react';
 
 export const Home = () => {

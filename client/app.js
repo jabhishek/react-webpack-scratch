@@ -1,6 +1,4 @@
-/**
- * Created by Abhi on 16/12/2017.
- */
+// @flow
 import React from 'react';
 import {render} from 'react-dom';
 import { BrowserRouter, Route, Link } from 'react-router-dom';

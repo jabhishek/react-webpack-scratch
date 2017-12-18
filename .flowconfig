@@ -1,0 +1,23 @@
+[ignore]
+./temp
+./dist
+.*/node_modules/draft-js/.*
+.*/node_modules/eslint-plugin-jsx-a11y/.*
+.*/node_modules/protobufjs/.*
+.*/node_modules/react-event-listener/.*
+.*/node_modules/radium/.*
+.*/node_modules/immutable/.*
+
+[include]
+
+[libs]
+
+[lints]
+
+[options]
+
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
+
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnore
+module.name_mapper.extension='scss' -> '<PROJECT_ROOT>/CSSModuleStub.js'
