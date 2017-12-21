@@ -22,6 +22,7 @@ module.exports = (env) => {
         scssDevRule
       ]
     },
+    devtool: 'eval',
     plugins: [
       new HtmlWebpackPlugin({template: './public/index.html'}),
       new webpack.NamedModulesPlugin(),

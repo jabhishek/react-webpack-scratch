@@ -13,7 +13,7 @@ module.exports = (env) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].[hash:6].js',
+      filename: 'js/[name].[hash:6].js',
       publicPath: '/'
     },
     module: {
@@ -22,13 +22,14 @@ module.exports = (env) => {
         scssProdRule
       ]
     },
+    devtool: 'source-map',
     plugins: [
       new HtmlWebpackPlugin({template: './public/index.html'}),
       new webpack.NamedModulesPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'common' // Specify the common bundle's name.
       }),
-      new ExtractTextPlugin('[name]-[contenthash:8].css')
+      new ExtractTextPlugin('css/[name]-[contenthash:8].css')
     ]
   }
 }
