@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const {scssProdRule, babelLoader} = require('./config/webpack/loaders');
 const path = require('path');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
   return {
@@ -29,7 +30,11 @@ module.exports = (env) => {
       new webpack.optimize.CommonsChunkPlugin({
         name: 'common' // Specify the common bundle's name.
       }),
-      new ExtractTextPlugin('css/[name]-[contenthash:8].css')
+      new ExtractTextPlugin('css/[name]-[contenthash:8].css'),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false
+      })
     ]
   }
 }

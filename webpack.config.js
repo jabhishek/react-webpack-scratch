@@ -2,6 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 const {babelLoader, scssDevRule} = require('./config/webpack/loaders');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 module.exports = (env) => {
   return {
@@ -26,7 +27,11 @@ module.exports = (env) => {
     plugins: [
       new HtmlWebpackPlugin({template: './public/index.html'}),
       new webpack.NamedModulesPlugin(),
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.HotModuleReplacementPlugin(),
+      new BundleAnalyzerPlugin({
+        analyzerMode: 'static',
+        openAnalyzer: false
+      })
     ],
     devServer: {
       host: 'localhost',
