@@ -7,7 +7,8 @@
   "scripts": {
     "build": "rimraf dist && webpack --env.prod --config ./webpack.production.config.js",
     "build:dev": "rimraf dist && webpack --env.dev",
-    "start": "webpack-dev-server --open",
+    "start:dev": "webpack-dev-server --open",
+    "start:prod": "http-server ./dist -o",
     "flow": "flow",
     "flow:watch": "flow-watch"
   },
@@ -30,6 +31,7 @@
     "flow-typed": "^2.2.3",
     "flow-watch": "^1.1.1",
     "html-webpack-plugin": "^2.30.1",
+    "http-server": "^0.10.0",
     "node-sass": "^4.7.2",
     "postcss-loader": "^2.0.9",
     "react-hot-loader": "^3.1.3",
