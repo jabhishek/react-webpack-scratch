@@ -18,10 +18,13 @@ module.exports = (env) => {
       publicPath: '/'
     },
     module: {
-      rules: [
-        babelLoader,
-        scssDevRule
-      ]
+      strictExportPresence: true,
+      rules: [{
+        oneOf: [
+          babelLoader,
+          scssDevRule
+        ]
+      }]
     },
     devtool: 'eval',
     plugins: [
