@@ -1,6 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
-const loaders = require('./config/webpack/loaders');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const {scssProdRule, babelLoader} = require('./config/webpack/loaders');
 const path = require('path');
 
 module.exports = (env) => {
@@ -12,12 +13,13 @@ module.exports = (env) => {
     },
     output: {
       path: path.resolve(__dirname, 'dist'),
-      filename: '[name].bundle.js',
+      filename: '[name].[hash:6].js',
       publicPath: '/'
     },
     module: {
       rules: [
-        loaders.babelLoader
+        babelLoader,
+        scssProdRule
       ]
     },
     plugins: [
@@ -25,7 +27,8 @@ module.exports = (env) => {
       new webpack.NamedModulesPlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         name: 'common' // Specify the common bundle's name.
-      })
+      }),
+      new ExtractTextPlugin('[name]-[contenthash:8].css')
     ]
   }
 }

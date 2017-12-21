@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
-const loaders = require('./config/webpack/loaders');
+const {babelLoader, scssDevRule} = require('./config/webpack/loaders');
 
 module.exports = (env) => {
   return {
@@ -18,7 +18,8 @@ module.exports = (env) => {
     },
     module: {
       rules: [
-        loaders.babelLoader
+        babelLoader,
+        scssDevRule
       ]
     },
     plugins: [
